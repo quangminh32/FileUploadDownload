@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Admin Chat";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Admin Chat Panel</h2>
+            <hr />
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Chat Messages & Images</h5>
+                </div>
+                <div class="card-body" style="height: 400px; overflow-y: auto;">
+                    <ul id="messagesList" class="list-unstyled"></ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Reply to User</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label for="replyToUser">Reply to User:</label>
+                        <input type="text" id="replyToUser" class="form-control" readonly />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="adminMessageInput">Your Message:</label>
+                        <textarea id="adminMessageInput" class="form-control" rows="3" placeholder="Type your reply..."></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="adminImageInput">Attach Image (Optional):</label>
+                        <input type="file" id="adminImageInput" class="form-control" accept="image/*" />
+                        <small class="text-muted">Max 5MB</small>
+                    </div>
+                    <button id="sendReplyButton" class="btn btn-primary" disabled>Send Reply</button>
+                    <button id="sendImageButton" class="btn btn-secondary" disabled>Send Image</button>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Active Users</h5>
+                </div>
+                <div class="card-body">
+                    <ul id="activeUsersList" class="list-unstyled"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@latest/dist/browser/signalr.js"></script>
+<script src="~/js/admin.js"></script> 

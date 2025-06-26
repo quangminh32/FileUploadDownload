@@ -1,0 +1,34 @@
+@model List<FileUploadDownload.Models.FileModel>
+@{
+    ViewData["Title"] = "Danh sách file";
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+<h2>Danh sách file</h2>
+<a class="btn btn-primary" asp-action="Upload">Upload file mới</a>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Tên file</th>
+            <th>Loại</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var file in Model)
+        {
+            <tr>
+                <td>@file.FileName</td>
+                <td>@file.ContentType</td>
+                <td>
+                    <a class="btn btn-success btn-sm" asp-action="Download" asp-route-id="@file.Id">Tải về</a>
+                    <form asp-action="Delete" asp-route-id="@file.Id" method="post" style="display:inline">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa file này?');">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Chat with Admin";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Chat with Admin</h2>
+            <p class="text-muted">Send a message or image to our admin team. We'll respond as soon as possible.</p>
+            <hr />
+        </div>
+    </div>
+    
+    <div class="row p-1">
+        <div class="col-1">Your Name</div>
+        <div class="col-5"><input type="text" id="userInput" class="form-control" placeholder="Enter your name" /></div>
+    </div>
+    <div class="row p-1">
+        <div class="col-1">Message</div>
+        <div class="col-5"><input type="text" class="w-100 form-control" id="messageInput" placeholder="Type your message to admin..." /></div>
+    </div>
+    <div class="row p-1">
+        <div class="col-1">Image</div>
+        <div class="col-5">
+            <input type="file" id="imageInput" class="form-control" accept="image/*" />
+            <small class="text-muted">Optional: Select an image to send (max 5MB)</small>
+        </div>
+    </div>
+    <div class="row p-1">
+        <div class="col-6 text-end">
+            <input type="button" id="sendButton" value="Send to Admin" class="btn btn-primary" />
+            <input type="button" id="sendImageButton" value="Send Image" class="btn btn-secondary" />
+        </div>
+    </div>
+    <div class="row p-1">
+        <div class="col-6">
+            <hr />
+        </div>
+    </div>
+    <div class="row p-1">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Chat History</h5>
+                </div>
+                <div class="card-body" style="height: 300px; overflow-y: auto;">
+                    <ul id="messagesList" class="list-unstyled"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@latest/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
